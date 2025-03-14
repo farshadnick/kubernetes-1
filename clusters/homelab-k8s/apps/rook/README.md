@@ -78,7 +78,7 @@ kubectl create -f storageclass-bucket-delete.yaml
 kubectl -n default create -f object-bucket-claim-delete.yaml
 
 # Store bucket credentials in environment variables 
-kubectl -n defailt get configmap,secret
+kubectl -n default get configmap,secret
 
 export BUCKET_NAME=$(kubectl -n default get cm ceph-bucket -o jsonpath='{.data.BUCKET_NAME}')
 export AWS_ACCESS_KEY_ID=$(kubectl -n default get secret ceph-bucket -o jsonpath='{.data.AWS_ACCESS_KEY_ID}' | base64 --decode)
